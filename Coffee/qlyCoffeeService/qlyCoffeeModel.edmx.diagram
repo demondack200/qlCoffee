@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6cf60524868f4081beb38544ae639942" Name="Diagram1">
+        <EntityTypeShape EntityType="qlycaffeeModel.ACCOUNT" Width="1.5" PointX="8" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlycaffeeModel.CHITIETHOADON" Width="1.5" PointX="3.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlycaffeeModel.CHITIETHOADONNHAP" Width="1.5" PointX="3.875" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlycaffeeModel.CONGTHUC" Width="1.5" PointX="9.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlycaffeeModel.HOADON" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlycaffeeModel.HOADONNHAP" Width="1.5" PointX="0.875" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlycaffeeModel.NGUYENLIEU" Width="1.5" PointX="6.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlycaffeeModel.ROLE" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlycaffeeModel.THUCUONG" Width="1.5" PointX="6.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="qlycaffeeModel.USER" Width="1.5" PointX="4.5" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="qlycaffeeModel.FK_ACCOUNT_USER_CO_A_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="qlycaffeeModel.FK_USER_USER_CO_A_ACCOUNT" ManuallyRouted="false" />
+        <AssociationConnector Association="qlycaffeeModel.FK_CHITIETH_CHITIETHO_HOADON" ManuallyRouted="false" />
+        <AssociationConnector Association="qlycaffeeModel.FK_CHITIETH_CHITIETHO_THUCUONG" ManuallyRouted="false" />
+        <AssociationConnector Association="qlycaffeeModel.FK_CHITIETH_CHITIETHO_HOADONNH" ManuallyRouted="false" />
+        <AssociationConnector Association="qlycaffeeModel.FK_CHITIETH_CHITIETHO_NGUYENLI" ManuallyRouted="false" />
+        <AssociationConnector Association="qlycaffeeModel.FK_CONGTHUC_CONGTHUC_NGUYENLI" ManuallyRouted="false" />
+        <AssociationConnector Association="qlycaffeeModel.FK_CONGTHUC_CONGTHUC2_THUCUONG" ManuallyRouted="false" />
+        <AssociationConnector Association="qlycaffeeModel.USER_CO_ROLE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
