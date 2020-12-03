@@ -1,6 +1,6 @@
 ﻿namespace Coffee
 {
-    partial class TaiKhoan
+    partial class QLyTaiKhoan
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.outerPanel = new System.Windows.Forms.Panel();
             this.btn_DoiMatKhau = new System.Windows.Forms.Button();
-            this.dp_birth = new System.Windows.Forms.DateTimePicker();
-            this.txt_VaiTro = new System.Windows.Forms.Label();
+            this.dtp_NgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.lb_VaiTro = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txt_GioiTinh = new System.Windows.Forms.Label();
+            this.lb_GioiTinh = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_HoTen = new System.Windows.Forms.Label();
+            this.lb_HoTen = new System.Windows.Forms.Label();
             this.label_HoTen = new System.Windows.Forms.Label();
             this.label_AcountInfo = new System.Windows.Forms.Label();
             this.outerPanel.SuspendLayout();
@@ -45,13 +45,13 @@
             // outerPanel
             // 
             this.outerPanel.Controls.Add(this.btn_DoiMatKhau);
-            this.outerPanel.Controls.Add(this.dp_birth);
-            this.outerPanel.Controls.Add(this.txt_VaiTro);
+            this.outerPanel.Controls.Add(this.dtp_NgaySinh);
+            this.outerPanel.Controls.Add(this.lb_VaiTro);
             this.outerPanel.Controls.Add(this.label7);
             this.outerPanel.Controls.Add(this.label5);
-            this.outerPanel.Controls.Add(this.txt_GioiTinh);
+            this.outerPanel.Controls.Add(this.lb_GioiTinh);
             this.outerPanel.Controls.Add(this.label3);
-            this.outerPanel.Controls.Add(this.txt_HoTen);
+            this.outerPanel.Controls.Add(this.lb_HoTen);
             this.outerPanel.Controls.Add(this.label_HoTen);
             this.outerPanel.Controls.Add(this.label_AcountInfo);
             this.outerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -69,24 +69,25 @@
             this.btn_DoiMatKhau.TabIndex = 33;
             this.btn_DoiMatKhau.Text = "Đổi mật khẩu";
             this.btn_DoiMatKhau.UseVisualStyleBackColor = true;
+            this.btn_DoiMatKhau.Click += new System.EventHandler(this.btn_DoiMatKhau_Click);
             // 
-            // dp_birth
+            // dtp_NgaySinh
             // 
-            this.dp_birth.Location = new System.Drawing.Point(349, 265);
-            this.dp_birth.Name = "dp_birth";
-            this.dp_birth.Size = new System.Drawing.Size(200, 20);
-            this.dp_birth.TabIndex = 32;
-            this.dp_birth.Value = new System.DateTime(2020, 11, 6, 17, 8, 57, 0);
+            this.dtp_NgaySinh.Location = new System.Drawing.Point(349, 265);
+            this.dtp_NgaySinh.Name = "dtp_NgaySinh";
+            this.dtp_NgaySinh.Size = new System.Drawing.Size(200, 20);
+            this.dtp_NgaySinh.TabIndex = 32;
+            this.dtp_NgaySinh.Value = new System.DateTime(2020, 11, 6, 17, 8, 57, 0);
             // 
-            // txt_VaiTro
+            // lb_VaiTro
             // 
-            this.txt_VaiTro.AutoSize = true;
-            this.txt_VaiTro.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_VaiTro.Location = new System.Drawing.Point(343, 301);
-            this.txt_VaiTro.Name = "txt_VaiTro";
-            this.txt_VaiTro.Size = new System.Drawing.Size(238, 31);
-            this.txt_VaiTro.TabIndex = 31;
-            this.txt_VaiTro.Text = "Pha chế + phục vụ";
+            this.lb_VaiTro.AutoSize = true;
+            this.lb_VaiTro.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_VaiTro.Location = new System.Drawing.Point(343, 301);
+            this.lb_VaiTro.Name = "lb_VaiTro";
+            this.lb_VaiTro.Size = new System.Drawing.Size(238, 31);
+            this.lb_VaiTro.TabIndex = 31;
+            this.lb_VaiTro.Text = "Pha chế + phục vụ";
             // 
             // label7
             // 
@@ -108,15 +109,15 @@
             this.label5.TabIndex = 29;
             this.label5.Text = "Ngày sinh:";
             // 
-            // txt_GioiTinh
+            // lb_GioiTinh
             // 
-            this.txt_GioiTinh.AutoSize = true;
-            this.txt_GioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_GioiTinh.Location = new System.Drawing.Point(343, 206);
-            this.txt_GioiTinh.Name = "txt_GioiTinh";
-            this.txt_GioiTinh.Size = new System.Drawing.Size(71, 31);
-            this.txt_GioiTinh.TabIndex = 28;
-            this.txt_GioiTinh.Text = "Nam";
+            this.lb_GioiTinh.AutoSize = true;
+            this.lb_GioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_GioiTinh.Location = new System.Drawing.Point(343, 206);
+            this.lb_GioiTinh.Name = "lb_GioiTinh";
+            this.lb_GioiTinh.Size = new System.Drawing.Size(71, 31);
+            this.lb_GioiTinh.TabIndex = 28;
+            this.lb_GioiTinh.Text = "Nam";
             // 
             // label3
             // 
@@ -128,15 +129,15 @@
             this.label3.TabIndex = 27;
             this.label3.Text = "Giới tính:";
             // 
-            // txt_HoTen
+            // lb_HoTen
             // 
-            this.txt_HoTen.AutoSize = true;
-            this.txt_HoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_HoTen.Location = new System.Drawing.Point(343, 160);
-            this.txt_HoTen.Name = "txt_HoTen";
-            this.txt_HoTen.Size = new System.Drawing.Size(188, 31);
-            this.txt_HoTen.TabIndex = 26;
-            this.txt_HoTen.Text = "Nguyễn Văn A";
+            this.lb_HoTen.AutoSize = true;
+            this.lb_HoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_HoTen.Location = new System.Drawing.Point(343, 160);
+            this.lb_HoTen.Name = "lb_HoTen";
+            this.lb_HoTen.Size = new System.Drawing.Size(188, 31);
+            this.lb_HoTen.TabIndex = 26;
+            this.lb_HoTen.Text = "Nguyễn Văn A";
             // 
             // label_HoTen
             // 
@@ -158,13 +159,13 @@
             this.label_AcountInfo.TabIndex = 24;
             this.label_AcountInfo.Text = "Thông tin tài khoản";
             // 
-            // TaiKhoan
+            // QLyTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 496);
             this.Controls.Add(this.outerPanel);
-            this.Name = "TaiKhoan";
+            this.Name = "QLyTaiKhoan";
             this.Text = "Tài khoản";
             this.outerPanel.ResumeLayout(false);
             this.outerPanel.PerformLayout();
@@ -176,13 +177,13 @@
 
         private System.Windows.Forms.Panel outerPanel;
         private System.Windows.Forms.Button btn_DoiMatKhau;
-        private System.Windows.Forms.DateTimePicker dp_birth;
-        private System.Windows.Forms.Label txt_VaiTro;
+        private System.Windows.Forms.DateTimePicker dtp_NgaySinh;
+        private System.Windows.Forms.Label lb_VaiTro;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label txt_GioiTinh;
+        private System.Windows.Forms.Label lb_GioiTinh;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label txt_HoTen;
+        private System.Windows.Forms.Label lb_HoTen;
         private System.Windows.Forms.Label label_HoTen;
         private System.Windows.Forms.Label label_AcountInfo;
     }

@@ -56,11 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ThongKe.cs">
+    <Compile Include="QlyThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThongKe.Designer.cs">
-      <DependentUpon>ThongKe.cs</DependentUpon>
+    <Compile Include="QlyThongKe.Designer.cs">
+      <DependentUpon>QlyThongKe.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -74,11 +74,11 @@
     <Compile Include="QLyNhanVien.Designer.cs">
       <DependentUpon>QLyNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="TaiKhoan.cs">
+    <Compile Include="QLyTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TaiKhoan.Designer.cs">
-      <DependentUpon>TaiKhoan.cs</DependentUpon>
+    <Compile Include="QLyTaiKhoan.Designer.cs">
+      <DependentUpon>QLyTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,11 +97,11 @@
     <EmbeddedResource Include="QLyNhanVien.resx">
       <DependentUpon>QLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TaiKhoan.resx">
-      <DependentUpon>TaiKhoan.cs</DependentUpon>
+    <EmbeddedResource Include="QLyTaiKhoan.resx">
+      <DependentUpon>QLyTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThongKe.resx">
-      <DependentUpon>ThongKe.cs</DependentUpon>
+    <EmbeddedResource Include="QlyThongKe.resx">
+      <DependentUpon>QlyThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

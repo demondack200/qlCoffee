@@ -1,6 +1,6 @@
 ﻿namespace Coffee
 {
-    partial class ThongKe
+    partial class QlyThongKe
     {
         /// <summary>
         /// Required designer variable.

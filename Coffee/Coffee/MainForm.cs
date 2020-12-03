@@ -1,19 +1,28 @@
 ﻿using System;
 using System.Windows.Forms;
+using qlyCoffeeService;
 
 namespace Coffee
 {
     public partial class MainForm : Form
     {
+        public static ACCOUNT account;
+
         public MainForm()
         {
             InitializeComponent();
+            if(account == null)
+            {
+                AccountService accService = new AccountService();
+                account = accService.getAccount("admin","admin123");//for test
+            }
+
         }
 
         private void btn_taiKhoan_Click(object sender, EventArgs e)
         {
             this.p_Container.Controls.Clear();
-            TaiKhoan taiKhoanform = new TaiKhoan() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            QLyTaiKhoan taiKhoanform = new QLyTaiKhoan() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             taiKhoanform.FormBorderStyle = FormBorderStyle.None;
             this.p_Container.Controls.Add(taiKhoanform);
             taiKhoanform.Show();
@@ -31,7 +40,7 @@ namespace Coffee
         private void btn_ThongKe_Click(object sender, EventArgs e)
         {
             this.p_Container.Controls.Clear();
-            ThongKe thongKeForm = new ThongKe() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            QlyThongKe thongKeForm = new QlyThongKe() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             thongKeForm.FormBorderStyle = FormBorderStyle.None;
             this.p_Container.Controls.Add(thongKeForm);
             thongKeForm.Show();
