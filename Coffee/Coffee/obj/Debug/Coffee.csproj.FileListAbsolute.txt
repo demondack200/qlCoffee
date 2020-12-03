@@ -11,3 +11,24 @@ G:\ThaiKimThu\mySchoolstuff\HK5\CNPM - N2 T1\DoAn\quanCaffee\CoffeeWindowForm\Co
 G:\ThaiKimThu\mySchoolstuff\HK5\CNPM - N2 T1\DoAn\quanCaffee\CoffeeWindowForm\Coffee\Coffee\obj\Debug\Coffee.MainForm.resources
 G:\ThaiKimThu\mySchoolstuff\HK5\CNPM - N2 T1\DoAn\quanCaffee\CoffeeWindowForm\Coffee\Coffee\obj\Debug\Coffee.TaiKhoan.resources
 G:\ThaiKimThu\mySchoolstuff\HK5\CNPM - N2 T1\DoAn\quanCaffee\CoffeeWindowForm\Coffee\Coffee\obj\Debug\Coffee.ThongKe.resources
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\bin\Debug\Coffee.exe.config
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\bin\Debug\Coffee.exe
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\bin\Debug\Coffee.pdb
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\bin\Debug\qlyCoffeeService.dll
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\bin\Debug\EntityFramework.dll
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\bin\Debug\qlyCoffeeService.pdb
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\bin\Debug\qlyCoffeeService.dll.config
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\bin\Debug\EntityFramework.xml
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\obj\Debug\Coffee.csprojAssemblyReference.cache
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\obj\Debug\Coffee.MainForm.resources
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\obj\Debug\Coffee.Properties.Resources.resources
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\obj\Debug\Coffee.QLyNhanVien.resources
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\obj\Debug\Coffee.TaiKhoan.resources
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\obj\Debug\Coffee.ThongKe.resources
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\obj\Debug\Coffee.csproj.GenerateResource.cache
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\obj\Debug\Coffee.csproj.CoreCompileInputs.cache
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\obj\Debug\Coffee.csproj.CopyComplete
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\obj\Debug\Coffee.exe
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\obj\Debug\Coffee.pdb
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\bin\Debug\EntityFramework.SqlServer.dll
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\Coffee\bin\Debug\EntityFramework.SqlServer.xml

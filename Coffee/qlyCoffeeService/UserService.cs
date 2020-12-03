@@ -11,9 +11,10 @@ namespace qlyCoffeeService
         public List<USER> getAllUser()
         {
             qlycaffeeEntities db = new qlycaffeeEntities();
-            List<USER> listOfAccount = db.USERs.ToList();
+            db.Configuration.LazyLoadingEnabled = false;
+            List<USER> listOfUser = db.USERs.ToList();
 
-            return listOfAccount;
+            return listOfUser;
         }
 
     }
