@@ -1,0 +1,11 @@
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\qlyCoffeeService\bin\Debug\qlyCoffeeService.dll.config
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\qlyCoffeeService\bin\Debug\qlyCoffeeService.dll
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\qlyCoffeeService\bin\Debug\qlyCoffeeService.pdb
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\qlyCoffeeService\bin\Debug\EntityFramework.dll
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\qlyCoffeeService\bin\Debug\EntityFramework.SqlServer.dll
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\qlyCoffeeService\bin\Debug\EntityFramework.xml
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\qlyCoffeeService\bin\Debug\EntityFramework.SqlServer.xml
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\qlyCoffeeService\obj\Debug\qlyCoffeeService.csproj.CoreCompileInputs.cache
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\qlyCoffeeService\obj\Debug\qlyCoffeeService.csproj.CopyComplete
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\qlyCoffeeService\obj\Debug\qlyCoffeeService.dll
+G:\ThaiKimThu\mySchoolstuff\HK5\công nghệ phần mềm - N2 T1\second\qlCoffee\Coffee\qlyCoffeeService\obj\Debug\qlyCoffeeService.pdb

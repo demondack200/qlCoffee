@@ -1,0 +1,668 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="qlycaffeeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="USERNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDUSER" Type="varchar" MaxLength="10" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CHITIETHOADON">
+          <Key>
+            <PropertyRef Name="IDTHUCUONG" />
+            <PropertyRef Name="IDHOADON" />
+          </Key>
+          <Property Name="IDTHUCUONG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDHOADON" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SOLUONGMUA" Type="int" />
+          <Property Name="THANHTIENMUA" Type="money" />
+        </EntityType>
+        <EntityType Name="CHITIETHOADONNHAP">
+          <Key>
+            <PropertyRef Name="IDHOADONNHAP" />
+            <PropertyRef Name="IDNGUYENLIEU" />
+          </Key>
+          <Property Name="IDHOADONNHAP" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDNGUYENLIEU" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SOLUONGNHAP" Type="float" />
+          <Property Name="THANHTIENNHAP" Type="money" />
+        </EntityType>
+        <EntityType Name="CONGTHUC">
+          <Key>
+            <PropertyRef Name="IDNGUYENLIEU" />
+            <PropertyRef Name="IDTHUCUONG" />
+          </Key>
+          <Property Name="IDNGUYENLIEU" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDTHUCUONG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SOLUONGDUNG" Type="float" />
+        </EntityType>
+        <EntityType Name="HOADON">
+          <Key>
+            <PropertyRef Name="IDHOADON" />
+          </Key>
+          <Property Name="IDHOADON" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="STT" Type="int" />
+          <Property Name="NGAYLAP" Type="datetime" />
+          <Property Name="TONGTIENMUA" Type="money" />
+        </EntityType>
+        <EntityType Name="HOADONNHAP">
+          <Key>
+            <PropertyRef Name="IDHOADONNHAP" />
+          </Key>
+          <Property Name="IDHOADONNHAP" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="NGAYNHAP" Type="datetime" />
+          <Property Name="TONGTIENNHAP" Type="money" />
+        </EntityType>
+        <EntityType Name="NGUYENLIEU">
+          <Key>
+            <PropertyRef Name="IDNGUYENLIEU" />
+          </Key>
+          <Property Name="IDNGUYENLIEU" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENNGUYENLIEU" Type="varchar" MaxLength="50" />
+          <Property Name="SOLUONGNGUYENLIEU" Type="float" />
+          <Property Name="DONVI" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="IDROLE" />
+          </Key>
+          <Property Name="IDROLE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ROLENAME" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="THUCUONG">
+          <Key>
+            <PropertyRef Name="IDTHUCUONG" />
+          </Key>
+          <Property Name="IDTHUCUONG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENTHUCUONG" Type="varchar" MaxLength="50" />
+          <Property Name="GIATIEN" Type="money" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="IDUSER" />
+          </Key>
+          <Property Name="IDUSER" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="50" />
+          <Property Name="HOTEN" Type="varchar" MaxLength="50" />
+          <Property Name="GIOITINH" Type="varchar" MaxLength="3" />
+          <Property Name="NGAYSINH" Type="datetime" />
+        </EntityType>
+        <EntityType Name="USER_CO_ROLE">
+          <Key>
+            <PropertyRef Name="IDROLE" />
+            <PropertyRef Name="IDUSER" />
+          </Key>
+          <Property Name="IDROLE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDUSER" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ACCOUNT_USER_CO_A_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="IDUSER" />
+            </Principal>
+            <Dependent Role="ACCOUNT">
+              <PropertyRef Name="IDUSER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHITIETH_CHITIETHO_HOADON">
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
+          <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="IDHOADON" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="IDHOADON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHITIETH_CHITIETHO_HOADONNH">
+          <End Role="HOADONNHAP" Type="Self.HOADONNHAP" Multiplicity="1" />
+          <End Role="CHITIETHOADONNHAP" Type="Self.CHITIETHOADONNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADONNHAP">
+              <PropertyRef Name="IDHOADONNHAP" />
+            </Principal>
+            <Dependent Role="CHITIETHOADONNHAP">
+              <PropertyRef Name="IDHOADONNHAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHITIETH_CHITIETHO_NGUYENLI">
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="1" />
+          <End Role="CHITIETHOADONNHAP" Type="Self.CHITIETHOADONNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUYENLIEU">
+              <PropertyRef Name="IDNGUYENLIEU" />
+            </Principal>
+            <Dependent Role="CHITIETHOADONNHAP">
+              <PropertyRef Name="IDNGUYENLIEU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHITIETH_CHITIETHO_THUCUONG">
+          <End Role="THUCUONG" Type="Self.THUCUONG" Multiplicity="1" />
+          <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUCUONG">
+              <PropertyRef Name="IDTHUCUONG" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="IDTHUCUONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONGTHUC_CONGTHUC_NGUYENLI">
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="1" />
+          <End Role="CONGTHUC" Type="Self.CONGTHUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUYENLIEU">
+              <PropertyRef Name="IDNGUYENLIEU" />
+            </Principal>
+            <Dependent Role="CONGTHUC">
+              <PropertyRef Name="IDNGUYENLIEU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONGTHUC_CONGTHUC2_THUCUONG">
+          <End Role="THUCUONG" Type="Self.THUCUONG" Multiplicity="1" />
+          <End Role="CONGTHUC" Type="Self.CONGTHUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUCUONG">
+              <PropertyRef Name="IDTHUCUONG" />
+            </Principal>
+            <Dependent Role="CONGTHUC">
+              <PropertyRef Name="IDTHUCUONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_CO__USER_CO_R_ROLE">
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="1" />
+          <End Role="USER_CO_ROLE" Type="Self.USER_CO_ROLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="IDROLE" />
+            </Principal>
+            <Dependent Role="USER_CO_ROLE">
+              <PropertyRef Name="IDROLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_CO__USER_CO_R_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="USER_CO_ROLE" Type="Self.USER_CO_ROLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="IDUSER" />
+            </Principal>
+            <Dependent Role="USER_CO_ROLE">
+              <PropertyRef Name="IDUSER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_USER_CO_A_ACCOUNT">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USERNAME" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="qlycaffeeModelStoreContainer">
+          <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHITIETHOADON" EntityType="Self.CHITIETHOADON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHITIETHOADONNHAP" EntityType="Self.CHITIETHOADONNHAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONGTHUC" EntityType="Self.CONGTHUC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOADONNHAP" EntityType="Self.HOADONNHAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NGUYENLIEU" EntityType="Self.NGUYENLIEU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROLE" EntityType="Self.ROLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THUCUONG" EntityType="Self.THUCUONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER_CO_ROLE" EntityType="Self.USER_CO_ROLE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ACCOUNT_USER_CO_A_USER" Association="Self.FK_ACCOUNT_USER_CO_A_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETH_CHITIETHO_HOADON" Association="Self.FK_CHITIETH_CHITIETHO_HOADON">
+            <End Role="HOADON" EntitySet="HOADON" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETH_CHITIETHO_HOADONNH" Association="Self.FK_CHITIETH_CHITIETHO_HOADONNH">
+            <End Role="HOADONNHAP" EntitySet="HOADONNHAP" />
+            <End Role="CHITIETHOADONNHAP" EntitySet="CHITIETHOADONNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETH_CHITIETHO_NGUYENLI" Association="Self.FK_CHITIETH_CHITIETHO_NGUYENLI">
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEU" />
+            <End Role="CHITIETHOADONNHAP" EntitySet="CHITIETHOADONNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETH_CHITIETHO_THUCUONG" Association="Self.FK_CHITIETH_CHITIETHO_THUCUONG">
+            <End Role="THUCUONG" EntitySet="THUCUONG" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONGTHUC_CONGTHUC_NGUYENLI" Association="Self.FK_CONGTHUC_CONGTHUC_NGUYENLI">
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEU" />
+            <End Role="CONGTHUC" EntitySet="CONGTHUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONGTHUC_CONGTHUC2_THUCUONG" Association="Self.FK_CONGTHUC_CONGTHUC2_THUCUONG">
+            <End Role="THUCUONG" EntitySet="THUCUONG" />
+            <End Role="CONGTHUC" EntitySet="CONGTHUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_CO__USER_CO_R_ROLE" Association="Self.FK_USER_CO__USER_CO_R_ROLE">
+            <End Role="ROLE" EntitySet="ROLE" />
+            <End Role="USER_CO_ROLE" EntitySet="USER_CO_ROLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_CO__USER_CO_R_USER" Association="Self.FK_USER_CO__USER_CO_R_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="USER_CO_ROLE" EntitySet="USER_CO_ROLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_USER_CO_A_ACCOUNT" Association="Self.FK_USER_USER_CO_A_ACCOUNT">
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="qlycaffeeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDUSER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USER" Relationship="Self.FK_ACCOUNT_USER_CO_A_USER" FromRole="ACCOUNT" ToRole="USER" />
+          <NavigationProperty Name="USERs" Relationship="Self.FK_USER_USER_CO_A_ACCOUNT" FromRole="ACCOUNT" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="CHITIETHOADON">
+          <Key>
+            <PropertyRef Name="IDTHUCUONG" />
+            <PropertyRef Name="IDHOADON" />
+          </Key>
+          <Property Name="IDTHUCUONG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDHOADON" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SOLUONGMUA" Type="Int32" />
+          <Property Name="THANHTIENMUA" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="HOADON" Relationship="Self.FK_CHITIETH_CHITIETHO_HOADON" FromRole="CHITIETHOADON" ToRole="HOADON" />
+          <NavigationProperty Name="THUCUONG" Relationship="Self.FK_CHITIETH_CHITIETHO_THUCUONG" FromRole="CHITIETHOADON" ToRole="THUCUONG" />
+        </EntityType>
+        <EntityType Name="CHITIETHOADONNHAP">
+          <Key>
+            <PropertyRef Name="IDHOADONNHAP" />
+            <PropertyRef Name="IDNGUYENLIEU" />
+          </Key>
+          <Property Name="IDHOADONNHAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDNGUYENLIEU" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SOLUONGNHAP" Type="Double" />
+          <Property Name="THANHTIENNHAP" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="HOADONNHAP" Relationship="Self.FK_CHITIETH_CHITIETHO_HOADONNH" FromRole="CHITIETHOADONNHAP" ToRole="HOADONNHAP" />
+          <NavigationProperty Name="NGUYENLIEU" Relationship="Self.FK_CHITIETH_CHITIETHO_NGUYENLI" FromRole="CHITIETHOADONNHAP" ToRole="NGUYENLIEU" />
+        </EntityType>
+        <EntityType Name="CONGTHUC">
+          <Key>
+            <PropertyRef Name="IDNGUYENLIEU" />
+            <PropertyRef Name="IDTHUCUONG" />
+          </Key>
+          <Property Name="IDNGUYENLIEU" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDTHUCUONG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SOLUONGDUNG" Type="Double" />
+          <NavigationProperty Name="NGUYENLIEU" Relationship="Self.FK_CONGTHUC_CONGTHUC_NGUYENLI" FromRole="CONGTHUC" ToRole="NGUYENLIEU" />
+          <NavigationProperty Name="THUCUONG" Relationship="Self.FK_CONGTHUC_CONGTHUC2_THUCUONG" FromRole="CONGTHUC" ToRole="THUCUONG" />
+        </EntityType>
+        <EntityType Name="HOADON">
+          <Key>
+            <PropertyRef Name="IDHOADON" />
+          </Key>
+          <Property Name="IDHOADON" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STT" Type="Int32" />
+          <Property Name="NGAYLAP" Type="DateTime" />
+          <Property Name="TONGTIENMUA" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="CHITIETHOADONs" Relationship="Self.FK_CHITIETH_CHITIETHO_HOADON" FromRole="HOADON" ToRole="CHITIETHOADON" />
+        </EntityType>
+        <EntityType Name="HOADONNHAP">
+          <Key>
+            <PropertyRef Name="IDHOADONNHAP" />
+          </Key>
+          <Property Name="IDHOADONNHAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NGAYNHAP" Type="DateTime" />
+          <Property Name="TONGTIENNHAP" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="CHITIETHOADONNHAPs" Relationship="Self.FK_CHITIETH_CHITIETHO_HOADONNH" FromRole="HOADONNHAP" ToRole="CHITIETHOADONNHAP" />
+        </EntityType>
+        <EntityType Name="NGUYENLIEU">
+          <Key>
+            <PropertyRef Name="IDNGUYENLIEU" />
+          </Key>
+          <Property Name="IDNGUYENLIEU" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENNGUYENLIEU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SOLUONGNGUYENLIEU" Type="Double" />
+          <Property Name="DONVI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CHITIETHOADONNHAPs" Relationship="Self.FK_CHITIETH_CHITIETHO_NGUYENLI" FromRole="NGUYENLIEU" ToRole="CHITIETHOADONNHAP" />
+          <NavigationProperty Name="CONGTHUCs" Relationship="Self.FK_CONGTHUC_CONGTHUC_NGUYENLI" FromRole="NGUYENLIEU" ToRole="CONGTHUC" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="IDROLE" />
+          </Key>
+          <Property Name="IDROLE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROLENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USERs" Relationship="Self.USER_CO_ROLE" FromRole="ROLE" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="THUCUONG">
+          <Key>
+            <PropertyRef Name="IDTHUCUONG" />
+          </Key>
+          <Property Name="IDTHUCUONG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENTHUCUONG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GIATIEN" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="CHITIETHOADONs" Relationship="Self.FK_CHITIETH_CHITIETHO_THUCUONG" FromRole="THUCUONG" ToRole="CHITIETHOADON" />
+          <NavigationProperty Name="CONGTHUCs" Relationship="Self.FK_CONGTHUC_CONGTHUC2_THUCUONG" FromRole="THUCUONG" ToRole="CONGTHUC" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="IDUSER" />
+          </Key>
+          <Property Name="IDUSER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GIOITINH" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="NGAYSINH" Type="DateTime" />
+          <NavigationProperty Name="ACCOUNTs" Relationship="Self.FK_ACCOUNT_USER_CO_A_USER" FromRole="USER" ToRole="ACCOUNT" />
+          <NavigationProperty Name="ACCOUNT" Relationship="Self.FK_USER_USER_CO_A_ACCOUNT" FromRole="USER" ToRole="ACCOUNT" />
+          <NavigationProperty Name="ROLEs" Relationship="Self.USER_CO_ROLE" FromRole="USER" ToRole="ROLE" />
+        </EntityType>
+        <Association Name="FK_ACCOUNT_USER_CO_A_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="IDUSER" />
+            </Principal>
+            <Dependent Role="ACCOUNT">
+              <PropertyRef Name="IDUSER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_USER_CO_A_ACCOUNT">
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="0..1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACCOUNT">
+              <PropertyRef Name="USERNAME" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHITIETH_CHITIETHO_HOADON">
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
+          <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="IDHOADON" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="IDHOADON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHITIETH_CHITIETHO_THUCUONG">
+          <End Role="THUCUONG" Type="Self.THUCUONG" Multiplicity="1" />
+          <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUCUONG">
+              <PropertyRef Name="IDTHUCUONG" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="IDTHUCUONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHITIETH_CHITIETHO_HOADONNH">
+          <End Role="HOADONNHAP" Type="Self.HOADONNHAP" Multiplicity="1" />
+          <End Role="CHITIETHOADONNHAP" Type="Self.CHITIETHOADONNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADONNHAP">
+              <PropertyRef Name="IDHOADONNHAP" />
+            </Principal>
+            <Dependent Role="CHITIETHOADONNHAP">
+              <PropertyRef Name="IDHOADONNHAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHITIETH_CHITIETHO_NGUYENLI">
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="1" />
+          <End Role="CHITIETHOADONNHAP" Type="Self.CHITIETHOADONNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUYENLIEU">
+              <PropertyRef Name="IDNGUYENLIEU" />
+            </Principal>
+            <Dependent Role="CHITIETHOADONNHAP">
+              <PropertyRef Name="IDNGUYENLIEU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONGTHUC_CONGTHUC_NGUYENLI">
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="1" />
+          <End Role="CONGTHUC" Type="Self.CONGTHUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUYENLIEU">
+              <PropertyRef Name="IDNGUYENLIEU" />
+            </Principal>
+            <Dependent Role="CONGTHUC">
+              <PropertyRef Name="IDNGUYENLIEU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONGTHUC_CONGTHUC2_THUCUONG">
+          <End Role="THUCUONG" Type="Self.THUCUONG" Multiplicity="1" />
+          <End Role="CONGTHUC" Type="Self.CONGTHUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUCUONG">
+              <PropertyRef Name="IDTHUCUONG" />
+            </Principal>
+            <Dependent Role="CONGTHUC">
+              <PropertyRef Name="IDTHUCUONG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USER_CO_ROLE">
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="*" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="qlycaffeeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
+          <EntitySet Name="CHITIETHOADONs" EntityType="Self.CHITIETHOADON" />
+          <EntitySet Name="CHITIETHOADONNHAPs" EntityType="Self.CHITIETHOADONNHAP" />
+          <EntitySet Name="CONGTHUCs" EntityType="Self.CONGTHUC" />
+          <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
+          <EntitySet Name="HOADONNHAPs" EntityType="Self.HOADONNHAP" />
+          <EntitySet Name="NGUYENLIEUx" EntityType="Self.NGUYENLIEU" />
+          <EntitySet Name="ROLEs" EntityType="Self.ROLE" />
+          <EntitySet Name="THUCUONGs" EntityType="Self.THUCUONG" />
+          <EntitySet Name="USERs" EntityType="Self.USER" />
+          <AssociationSet Name="FK_ACCOUNT_USER_CO_A_USER" Association="Self.FK_ACCOUNT_USER_CO_A_USER">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_USER_CO_A_ACCOUNT" Association="Self.FK_USER_USER_CO_A_ACCOUNT">
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+            <End Role="USER" EntitySet="USERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETH_CHITIETHO_HOADON" Association="Self.FK_CHITIETH_CHITIETHO_HOADON">
+            <End Role="HOADON" EntitySet="HOADONs" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETH_CHITIETHO_THUCUONG" Association="Self.FK_CHITIETH_CHITIETHO_THUCUONG">
+            <End Role="THUCUONG" EntitySet="THUCUONGs" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETH_CHITIETHO_HOADONNH" Association="Self.FK_CHITIETH_CHITIETHO_HOADONNH">
+            <End Role="HOADONNHAP" EntitySet="HOADONNHAPs" />
+            <End Role="CHITIETHOADONNHAP" EntitySet="CHITIETHOADONNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETH_CHITIETHO_NGUYENLI" Association="Self.FK_CHITIETH_CHITIETHO_NGUYENLI">
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEUx" />
+            <End Role="CHITIETHOADONNHAP" EntitySet="CHITIETHOADONNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONGTHUC_CONGTHUC_NGUYENLI" Association="Self.FK_CONGTHUC_CONGTHUC_NGUYENLI">
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEUx" />
+            <End Role="CONGTHUC" EntitySet="CONGTHUCs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONGTHUC_CONGTHUC2_THUCUONG" Association="Self.FK_CONGTHUC_CONGTHUC2_THUCUONG">
+            <End Role="THUCUONG" EntitySet="THUCUONGs" />
+            <End Role="CONGTHUC" EntitySet="CONGTHUCs" />
+          </AssociationSet>
+          <AssociationSet Name="USER_CO_ROLE" Association="Self.USER_CO_ROLE">
+            <End Role="ROLE" EntitySet="ROLEs" />
+            <End Role="USER" EntitySet="USERs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="qlycaffeeModelStoreContainer" CdmEntityContainer="qlycaffeeEntities">
+          <EntitySetMapping Name="ACCOUNTs">
+            <EntityTypeMapping TypeName="qlycaffeeModel.ACCOUNT">
+              <MappingFragment StoreEntitySet="ACCOUNT">
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHITIETHOADONs">
+            <EntityTypeMapping TypeName="qlycaffeeModel.CHITIETHOADON">
+              <MappingFragment StoreEntitySet="CHITIETHOADON">
+                <ScalarProperty Name="IDTHUCUONG" ColumnName="IDTHUCUONG" />
+                <ScalarProperty Name="IDHOADON" ColumnName="IDHOADON" />
+                <ScalarProperty Name="SOLUONGMUA" ColumnName="SOLUONGMUA" />
+                <ScalarProperty Name="THANHTIENMUA" ColumnName="THANHTIENMUA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHITIETHOADONNHAPs">
+            <EntityTypeMapping TypeName="qlycaffeeModel.CHITIETHOADONNHAP">
+              <MappingFragment StoreEntitySet="CHITIETHOADONNHAP">
+                <ScalarProperty Name="IDHOADONNHAP" ColumnName="IDHOADONNHAP" />
+                <ScalarProperty Name="IDNGUYENLIEU" ColumnName="IDNGUYENLIEU" />
+                <ScalarProperty Name="SOLUONGNHAP" ColumnName="SOLUONGNHAP" />
+                <ScalarProperty Name="THANHTIENNHAP" ColumnName="THANHTIENNHAP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONGTHUCs">
+            <EntityTypeMapping TypeName="qlycaffeeModel.CONGTHUC">
+              <MappingFragment StoreEntitySet="CONGTHUC">
+                <ScalarProperty Name="IDNGUYENLIEU" ColumnName="IDNGUYENLIEU" />
+                <ScalarProperty Name="IDTHUCUONG" ColumnName="IDTHUCUONG" />
+                <ScalarProperty Name="SOLUONGDUNG" ColumnName="SOLUONGDUNG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOADONs">
+            <EntityTypeMapping TypeName="qlycaffeeModel.HOADON">
+              <MappingFragment StoreEntitySet="HOADON">
+                <ScalarProperty Name="IDHOADON" ColumnName="IDHOADON" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="NGAYLAP" ColumnName="NGAYLAP" />
+                <ScalarProperty Name="TONGTIENMUA" ColumnName="TONGTIENMUA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOADONNHAPs">
+            <EntityTypeMapping TypeName="qlycaffeeModel.HOADONNHAP">
+              <MappingFragment StoreEntitySet="HOADONNHAP">
+                <ScalarProperty Name="IDHOADONNHAP" ColumnName="IDHOADONNHAP" />
+                <ScalarProperty Name="NGAYNHAP" ColumnName="NGAYNHAP" />
+                <ScalarProperty Name="TONGTIENNHAP" ColumnName="TONGTIENNHAP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NGUYENLIEUx">
+            <EntityTypeMapping TypeName="qlycaffeeModel.NGUYENLIEU">
+              <MappingFragment StoreEntitySet="NGUYENLIEU">
+                <ScalarProperty Name="IDNGUYENLIEU" ColumnName="IDNGUYENLIEU" />
+                <ScalarProperty Name="TENNGUYENLIEU" ColumnName="TENNGUYENLIEU" />
+                <ScalarProperty Name="SOLUONGNGUYENLIEU" ColumnName="SOLUONGNGUYENLIEU" />
+                <ScalarProperty Name="DONVI" ColumnName="DONVI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLEs">
+            <EntityTypeMapping TypeName="qlycaffeeModel.ROLE">
+              <MappingFragment StoreEntitySet="ROLE">
+                <ScalarProperty Name="IDROLE" ColumnName="IDROLE" />
+                <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THUCUONGs">
+            <EntityTypeMapping TypeName="qlycaffeeModel.THUCUONG">
+              <MappingFragment StoreEntitySet="THUCUONG">
+                <ScalarProperty Name="IDTHUCUONG" ColumnName="IDTHUCUONG" />
+                <ScalarProperty Name="TENTHUCUONG" ColumnName="TENTHUCUONG" />
+                <ScalarProperty Name="GIATIEN" ColumnName="GIATIEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERs">
+            <EntityTypeMapping TypeName="qlycaffeeModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="USER_CO_ROLE" TypeName="qlycaffeeModel.USER_CO_ROLE" StoreEntitySet="USER_CO_ROLE">
+            <EndProperty Name="ROLE">
+              <ScalarProperty Name="IDROLE" ColumnName="IDROLE" />
+            </EndProperty>
+            <EndProperty Name="USER">
+              <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

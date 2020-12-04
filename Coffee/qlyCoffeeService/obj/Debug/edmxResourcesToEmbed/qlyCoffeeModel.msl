@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="qlycaffeeModelStoreContainer" CdmEntityContainer="qlycaffeeEntities">
+    <EntitySetMapping Name="ACCOUNTs">
+      <EntityTypeMapping TypeName="qlycaffeeModel.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNT">
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIETHOADONs">
+      <EntityTypeMapping TypeName="qlycaffeeModel.CHITIETHOADON">
+        <MappingFragment StoreEntitySet="CHITIETHOADON">
+          <ScalarProperty Name="IDTHUCUONG" ColumnName="IDTHUCUONG" />
+          <ScalarProperty Name="IDHOADON" ColumnName="IDHOADON" />
+          <ScalarProperty Name="SOLUONGMUA" ColumnName="SOLUONGMUA" />
+          <ScalarProperty Name="THANHTIENMUA" ColumnName="THANHTIENMUA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIETHOADONNHAPs">
+      <EntityTypeMapping TypeName="qlycaffeeModel.CHITIETHOADONNHAP">
+        <MappingFragment StoreEntitySet="CHITIETHOADONNHAP">
+          <ScalarProperty Name="IDHOADONNHAP" ColumnName="IDHOADONNHAP" />
+          <ScalarProperty Name="IDNGUYENLIEU" ColumnName="IDNGUYENLIEU" />
+          <ScalarProperty Name="SOLUONGNHAP" ColumnName="SOLUONGNHAP" />
+          <ScalarProperty Name="THANHTIENNHAP" ColumnName="THANHTIENNHAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONGTHUCs">
+      <EntityTypeMapping TypeName="qlycaffeeModel.CONGTHUC">
+        <MappingFragment StoreEntitySet="CONGTHUC">
+          <ScalarProperty Name="IDNGUYENLIEU" ColumnName="IDNGUYENLIEU" />
+          <ScalarProperty Name="IDTHUCUONG" ColumnName="IDTHUCUONG" />
+          <ScalarProperty Name="SOLUONGDUNG" ColumnName="SOLUONGDUNG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOADONs">
+      <EntityTypeMapping TypeName="qlycaffeeModel.HOADON">
+        <MappingFragment StoreEntitySet="HOADON">
+          <ScalarProperty Name="IDHOADON" ColumnName="IDHOADON" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="NGAYLAP" ColumnName="NGAYLAP" />
+          <ScalarProperty Name="TONGTIENMUA" ColumnName="TONGTIENMUA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOADONNHAPs">
+      <EntityTypeMapping TypeName="qlycaffeeModel.HOADONNHAP">
+        <MappingFragment StoreEntitySet="HOADONNHAP">
+          <ScalarProperty Name="IDHOADONNHAP" ColumnName="IDHOADONNHAP" />
+          <ScalarProperty Name="NGAYNHAP" ColumnName="NGAYNHAP" />
+          <ScalarProperty Name="TONGTIENNHAP" ColumnName="TONGTIENNHAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGUYENLIEUx">
+      <EntityTypeMapping TypeName="qlycaffeeModel.NGUYENLIEU">
+        <MappingFragment StoreEntitySet="NGUYENLIEU">
+          <ScalarProperty Name="IDNGUYENLIEU" ColumnName="IDNGUYENLIEU" />
+          <ScalarProperty Name="TENNGUYENLIEU" ColumnName="TENNGUYENLIEU" />
+          <ScalarProperty Name="SOLUONGNGUYENLIEU" ColumnName="SOLUONGNGUYENLIEU" />
+          <ScalarProperty Name="DONVI" ColumnName="DONVI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLEs">
+      <EntityTypeMapping TypeName="qlycaffeeModel.ROLE">
+        <MappingFragment StoreEntitySet="ROLE">
+          <ScalarProperty Name="IDROLE" ColumnName="IDROLE" />
+          <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THUCUONGs">
+      <EntityTypeMapping TypeName="qlycaffeeModel.THUCUONG">
+        <MappingFragment StoreEntitySet="THUCUONG">
+          <ScalarProperty Name="IDTHUCUONG" ColumnName="IDTHUCUONG" />
+          <ScalarProperty Name="TENTHUCUONG" ColumnName="TENTHUCUONG" />
+          <ScalarProperty Name="GIATIEN" ColumnName="GIATIEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERs">
+      <EntityTypeMapping TypeName="qlycaffeeModel.USER">
+        <MappingFragment StoreEntitySet="USER">
+          <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+          <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="USER_CO_ROLE" TypeName="qlycaffeeModel.USER_CO_ROLE" StoreEntitySet="USER_CO_ROLE">
+      <EndProperty Name="ROLE">
+        <ScalarProperty Name="IDROLE" ColumnName="IDROLE" />
+      </EndProperty>
+      <EndProperty Name="USER">
+        <ScalarProperty Name="IDUSER" ColumnName="IDUSER" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
